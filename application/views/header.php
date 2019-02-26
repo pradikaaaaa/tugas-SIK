@@ -12,7 +12,7 @@
 
 </head>
 <body scroll="no">
-    
+
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -27,6 +27,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="">Beranda</a></li>
+            <li><a href="<?=site_url()?>/Barang/tambahBarang">Tambah Barang</a></li>
             <li><a href="">Tambah Data</a></li>
           </ul>
         </div>
