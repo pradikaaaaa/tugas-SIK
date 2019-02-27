@@ -1,24 +1,23 @@
-<?php $this->load->view('header');
-?>
+<?php $this->load->view('header');?>
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-body">
-                <?php echo form_open_multipart('Barang/tambahBarang');?>
+                <?php echo form_open_multipart('');?>
 				<?php echo validation_errors(); ?>
 
                 <div class="form-group">
 					<label for="" >ID Customer :  </label>
-					<input type="text" name="id_barang" class="form-control" id="id_barang" value="<?=$id;?>" readonly>
+					<input type="text" name="id_barang" class="form-control" id="id_barang" value="" readonly>
 				</div>
                 <div class="form-group">
                     <label for="">Nama Customer :</label>
                     <input class="form-control" type="text" name="nama_barang" id="">
                 </div>
                 <div class="form-group">
-                    <label for="">Alamat :</label>
-                    <input class="form-control" type="text" name="satuan" id="">
+                    <label>Alamat</label>
+                    <textarea name="deskripsi" class="form-control" id="ckeditor1"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Telepon :</label>
@@ -33,5 +32,14 @@
     </div>
 </div>
 
-<?php $this->load->view('footer');
-?>
+<?php $this->load->view('footer');?>
+<script src="<?=base_url()?>assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    $(function(){
+        CKEDITOR.replace('ckeditor1');
+    });
+</script>
+
+
+</body>
+</html>

@@ -27,8 +27,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="">Beranda</a></li>
+            <li><a href="<?=site_url()?>/Customer/">Tambah Customer</a></li>
             <li><a href="<?=site_url()?>/Barang/tambahBarang">Tambah Barang</a></li>
-            <li><a href="">Tambah Data</a></li>
+            <li><a href="<?=site_url()?>/">Tambah Transaksi</a></li>
           </ul>
         </div>
       </div>
