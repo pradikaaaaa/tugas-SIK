@@ -29,6 +29,4 @@
     }
 
     /* End of file Barang_Model.php */
-
-
 ?>

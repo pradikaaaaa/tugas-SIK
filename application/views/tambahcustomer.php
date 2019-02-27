@@ -35,7 +35,9 @@
 <?php $this->load->view('footer');?>
 <script src="<?=base_url()?>assets/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-
+    $(function(){
+        CKEDITOR.replace('ckeditor1');
+    });
 </script>
 
 
