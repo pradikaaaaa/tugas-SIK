@@ -37,7 +37,10 @@ class Transaksi_Model extends CI_Model {
     }
 
     public function getDetailItem($id){
-        $this->db->from('tbl_detail_pembelian');
+        $this->db->select('b.nama_barang as nama, b.harga as harga, d.jumlah as jumlah');
+        $this->db->from('tbl_detail_pembelian d');
+        $this->db->join('tbl_barang b', 'd.id_barang = b.id_barang', 'inner');
+        
         $this->db->where('id_transaksi',$id);
         $query = $this->db->get();    
         return $query->result();
