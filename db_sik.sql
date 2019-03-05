@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26 Feb 2019 pada 13.09
--- Versi Server: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Mar 05, 2019 at 03:26 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_barang`
+-- Table structure for table `tbl_barang`
 --
 
 CREATE TABLE `tbl_barang` (
@@ -36,7 +36,7 @@ CREATE TABLE `tbl_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_barang`
+-- Dumping data for table `tbl_barang`
 --
 
 INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `satuan`, `harga`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `satuan`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_customer`
+-- Table structure for table `tbl_customer`
 --
 
 CREATE TABLE `tbl_customer` (
@@ -57,43 +57,45 @@ CREATE TABLE `tbl_customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_customer`
+-- Dumping data for table `tbl_customer`
 --
 
 INSERT INTO `tbl_customer` (`id_customer`, `nama_customer`, `alamat`, `telepon`) VALUES
+('C001', 'Yahuya', '<p>Malang</p>\r\n', '081333495201'),
 ('C002', 'Mardiana', '1234', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_pembelian`
+-- Table structure for table `tbl_detail_pembelian`
 --
 
 CREATE TABLE `tbl_detail_pembelian` (
   `id_transaksi` varchar(12) NOT NULL,
-  `no_order` int(11) NOT NULL,
   `id_barang` varchar(6) NOT NULL,
   `harga_barang` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_detail_pembelian`
+-- Dumping data for table `tbl_detail_pembelian`
 --
 
-INSERT INTO `tbl_detail_pembelian` (`id_transaksi`, `no_order`, `id_barang`, `harga_barang`, `jumlah`) VALUES
-('SO0219000001', 0, 'BR1', 0, 10000),
-('SO0219000001', 0, 'BR2', 0, 20000);
+INSERT INTO `tbl_detail_pembelian` (`id_transaksi`, `id_barang`, `harga_barang`, `jumlah`) VALUES
+('SO0319000001', 'BR1', 1000, 1),
+('SO0319000001', 'BR2', 500000, 1),
+('SO0319000002', 'BR1', 1000, 2),
+('SO0319000003', 'BR2', 500000, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_pembelian`
+-- Table structure for table `tbl_pembelian`
 --
 
 CREATE TABLE `tbl_pembelian` (
   `id_transaksi` varchar(12) NOT NULL,
-  `tgl_transaki` date NOT NULL,
+  `tgl_transaksi` date NOT NULL,
   `tgl_produksi` date NOT NULL,
   `tgl_selesai_produksi` date NOT NULL,
   `tgl_pengiriman` date NOT NULL,
@@ -101,13 +103,13 @@ CREATE TABLE `tbl_pembelian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_pembelian`
+-- Dumping data for table `tbl_pembelian`
 --
 
-INSERT INTO `tbl_pembelian` (`id_transaksi`, `tgl_transaki`, `tgl_produksi`, `tgl_selesai_produksi`, `tgl_pengiriman`, `id_customer`) VALUES
-('SO0219000001', '2019-02-01', '0000-00-00', '0000-00-00', '0000-00-00', 'C002'),
-('SO0219000002', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 'C002'),
-('SO0219000003', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 'C002');
+INSERT INTO `tbl_pembelian` (`id_transaksi`, `tgl_transaksi`, `tgl_produksi`, `tgl_selesai_produksi`, `tgl_pengiriman`, `id_customer`) VALUES
+('SO0319000001', '2019-03-05', '0000-00-00', '0000-00-00', '0000-00-00', 'C002'),
+('SO0319000002', '2019-03-05', '0000-00-00', '0000-00-00', '0000-00-00', 'C002'),
+('SO0319000003', '2019-03-05', '2019-03-06', '2019-03-07', '2019-03-08', 'C001');
 
 --
 -- Indexes for dumped tables
@@ -140,18 +142,18 @@ ALTER TABLE `tbl_pembelian`
   ADD KEY `fk_id_customer` (`id_customer`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_detail_pembelian`
+-- Constraints for table `tbl_detail_pembelian`
 --
 ALTER TABLE `tbl_detail_pembelian`
   ADD CONSTRAINT `fk_id_barang_order` FOREIGN KEY (`id_barang`) REFERENCES `tbl_barang` (`id_barang`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_transaksi_order` FOREIGN KEY (`id_transaksi`) REFERENCES `tbl_pembelian` (`id_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tbl_pembelian`
+-- Constraints for table `tbl_pembelian`
 --
 ALTER TABLE `tbl_pembelian`
   ADD CONSTRAINT `fk_id_customer` FOREIGN KEY (`id_customer`) REFERENCES `tbl_customer` (`id_customer`) ON DELETE CASCADE ON UPDATE CASCADE;

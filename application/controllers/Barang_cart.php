@@ -116,6 +116,10 @@
 
             //-------------------------Input data Pembelian------------------------------
             $data_order = array('id_transaksi'  => $this->input->post('kode_transaksi'),
+                                'tgl_transaksi' => $this->input->post('tgl_transaksi'),
+                                'tgl_produksi'  => $this->input->post('tgl_produksi'),
+                                'tgl_selesai_produksi' => $this->input->post('tgl_selesai'),
+                                'tgl_pengiriman' => $this->input->post('tgl_pengiriman'),
                                 'id_customer'   => $this->input->post('idcustomer'));
             $id_order = $this->Barang_Model->tambah_order($data_order);
             //-------------------------Input data detail---------------------------------
@@ -125,7 +129,8 @@
 					{
 						$data_detail = array('id_transaksi' =>$item['kode_transaksi'],
                                              'id_barang'    =>$item['id'],
-                                             'harga_barang' =>$item['price']);
+                                             'harga_barang' =>$item['price'],
+                                             'jumlah'       =>$item['qty']);
 						$proses = $this->Barang_Model->tambah_detail_order($data_detail);
 					}
 			}

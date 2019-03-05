@@ -10,13 +10,14 @@ class Transaksi extends CI_Controller {
 		
 	}
 
-	public function index()
+	public function tambahTransaksi()
 	{
         $data['kode_transaksi'] = $this->generate_kode();
         $data['kode_customer'] = $this->Transaksi_Model->getCustomer();
 		$this->load->view('transaksi_insert',$data);
 
     }
+
     
 
     public function generate_kode(){
