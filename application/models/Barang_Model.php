@@ -25,6 +25,24 @@
             $this->db->insert('tbl_barang', $data);
         }
 
+        function search_Barang($barang){
+            $this->db->like('nama_barang', $barang , 'both');
+            $this->db->order_by('nama_barang', 'ASC');
+            $this->db->limit(10);
+            return $this->db->get('tbl_barang')->result();
+        }
+
+        function tambah_order($data)
+        {
+            $this->db->insert('tbl_pembelian', $data);
+        }
+
+        function tambah_detail_order($data)
+        {
+            $this->db->insert('tbl_detail_pembelian', $data);
+        }
+
+
 
     }
 
