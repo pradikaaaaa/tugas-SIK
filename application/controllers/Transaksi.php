@@ -8,7 +8,12 @@ class Transaksi extends CI_Controller {
         parent::__construct();
         $this->load->model('Transaksi_Model');
 		
-	}
+    }
+    
+    public function index(){
+        $data['transaksi'] = $this->Transaksi_Model->getTransaksi();
+        $this->load->view('transaksi_list',$data);
+    }
 
 	public function tambahTransaksi()
 	{
@@ -16,6 +21,12 @@ class Transaksi extends CI_Controller {
         $data['kode_customer'] = $this->Transaksi_Model->getCustomer();
 		$this->load->view('transaksi_insert',$data);
 
+    }
+
+    public function detailtransaksi($id){
+        $data['header'] = $this->Transaksi_Model->getDetailTransaksi($id);
+        $data['orderItem'] = $this->Transaksi_Model->getDetailItem($id);
+        $this->load->view('transaksi_detail',$data);
     }
 
     

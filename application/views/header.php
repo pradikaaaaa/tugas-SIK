@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
     <!--<script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>-->
 
-    <!-- <link rel="stylesheet" href="<?=base_url()?>assets/DataTables/datatables.min.css"> -->
+    <link rel="stylesheet" href="<?=base_url()?>assets/DataTables/datatables.min.css">
 
 </head>
 <body scroll="no">
@@ -44,7 +44,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transaksi
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Lihat Transaksi</a></li>
+                <li><a href="<?=site_url()?>/Transaksi/">Lihat Transaksi</a></li>
                 <li><a href="<?=site_url()?>/Transaksi/tambahTransaksi">Tambah Transaksi</a></li>
               </ul>
             </li>

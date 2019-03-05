@@ -21,6 +21,27 @@ class Transaksi_Model extends CI_Model {
         return $query->result();
     }
 
+    public function getTransaksi(){
+        $this->db->select('id_transaksi, tgl_transaksi, nama_customer');
+        $this->db->from('tbl_pembelian');
+        $this->db->join('tbl_customer','tbl_pembelian.id_customer = tbl_customer.id_customer','inner');
+        $query = $this->db->get();    
+        return $query->result();
+    }
+
+    public function getDetailTransaksi($id){
+        $this->db->from('tbl_pembelian');
+        $this->db->where('id_transaksi',$id);
+        $query = $this->db->get();    
+        return $query->result();
+    }
+
+    public function getDetailItem($id){
+        $this->db->from('tbl_detail_pembelian');
+        $this->db->where('id_transaksi',$id);
+        $query = $this->db->get();    
+        return $query->result();
+    }
 
 
 
