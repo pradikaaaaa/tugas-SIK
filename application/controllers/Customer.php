@@ -15,5 +15,18 @@ class Customer extends CI_Controller {
 		$this->load->view('tambahcustomer');
 
 	}
+
+	public function tambahCustomer(){
+		$this->form_validation->set_rules('id_customer', 'N', 'trim|required');
+		if ($this->form_validation->run() === false) {
+			$data['id']=$this->generate_kode();
+			$this->load->view('tambahbarang',$data);
+		}else{
+			$this->load->model('Barang_Model');
+			$this->Barang_Model->insertBarang();
+			redirect('Barang/index','refresh');
+		}
+	}
+
 	
 }

@@ -24,8 +24,6 @@
             );
             $this->db->insert('tbl_barang', $data);
         }
-
-
     }
 
     /* End of file Barang_Model.php */

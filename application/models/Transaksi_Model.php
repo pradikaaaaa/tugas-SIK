@@ -20,10 +20,6 @@ class Transaksi_Model extends CI_Model {
         $query = $this->db->get('tbl_customer');
         return $query->result();
     }
-
-
-
-
 }
 
 ?>
