@@ -25,6 +25,18 @@
             $this->db->insert('tbl_bahan_baku', $data);
         }
 
+        public function insertDetailBarang($data){
+        //     $bahan_list = $this->input->post('bahan');
+        //     foreach($bahan_list as $bahan){
+        //         $data = array(
+        //             'id_barang' => $this->input->post('id_barang'),
+        //             'id_bahan' => $this->input->post('id_bahan')
+        //         );
+                $this->db->insert('tbl_detail_barang',$data);
+        //     }
+
+        }
+
         public function getBahan(){
             $this->db->select('*');
             $query = $this->db->get('tbl_bahan_baku');

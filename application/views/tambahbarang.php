@@ -17,6 +17,18 @@
                     <input class="form-control" type="text" name="nama_barang" id="">
                 </div>
                 <div class="form-group">
+                    <label>Bahan Baku Barang</label>
+                        <select multiple class="form-control" name="bahan[]">
+                            <?php foreach ($bahan as $bb) { ?>
+                            <option value="<?=$bb->id_bahan;?>">
+                                <?=$bb->nama_bahan;?>
+                            </option>
+                            <?php } ?>
+                        </select>
+                </div>
+
+
+                <div class="form-group">
                     <label for="">Satuan :</label>
                     <input class="form-control" type="text" name="satuan" id="">
                 </div>

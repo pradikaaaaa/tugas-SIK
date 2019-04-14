@@ -30,6 +30,8 @@ class BahanBaku extends CI_Controller {
 		}
 	}
 
+	
+
 	public function generate_kode(){
 		
         $nomor = 1;

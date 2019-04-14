@@ -47,6 +47,25 @@
             $query = $this->db->get('tbl_barang');
             return $query->result();
         }
+
+
+        /*----------- */
+        public function getDetailBarang($id){
+            $this->db->from('tbl_barang');
+            $this->db->where('id_barang',$id);
+            $query = $this->db->get();    
+            return $query->result();
+        }
+    
+        public function getDetailItemBarang($id){
+            $this->db->select('b.nama_bahan as nama_bahan, b.satuan as satuan, b.harga as harga');
+            $this->db->from('tbl_detail_barang d');
+            $this->db->join('tbl_bahan_baku b', 'd.id_bahan = b.id_bahan', 'inner');
+            
+            $this->db->where('id_barang',$id);
+            $query = $this->db->get();    
+            return $query->result();
+        }
     }
 
     /* End of file Barang_Model.php */
