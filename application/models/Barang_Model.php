@@ -42,8 +42,11 @@
             $this->db->insert('tbl_detail_pembelian', $data);
         }
 
-
-
+        public function getBarang(){
+            $this->db->select('*');
+            $query = $this->db->get('tbl_barang');
+            return $query->result();
+        }
     }
 
     /* End of file Barang_Model.php */

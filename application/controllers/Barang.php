@@ -7,13 +7,15 @@ class Barang extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('url','form');
-        $this->load->library('form_validation');
+		$this->load->library('form_validation');
+		$this->load->model('Barang_Model');
+
 	}
 
 	public function index()
 	{
-
-		$this->load->view('barang_list');
+		$data['barang'] = $this->Barang_Model->getBarang();
+		$this->load->view('barang_list',$data);
 
 	}
 
@@ -30,8 +32,7 @@ class Barang extends CI_Controller {
 	}
 
 	public function generate_kode(){
-		$this->load->model('Barang_Model');
-
+		
         $nomor = 1;
         $kode = substr('BR'.$nomor,-3,3);
 
@@ -62,6 +63,4 @@ class Barang extends CI_Controller {
 			   }
 		}
 	}
-
-
 }

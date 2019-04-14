@@ -4,24 +4,24 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-            Barang List
+            Bahan Baku List
 
             <table width="100%" class="table table-striped table-bordered table-hover" id="dt-transaksi">
                     <thead>
                         <tr>
-                            <th>ID Barang</th>
-                            <th>Nama Barang</th>
+                            <th>ID Bahan</th>
+                            <th>Nama Bahan</th>
                             <th>Satuan</th>
                             <th>Harga</th>
                         </tr>
                     </thead>
                     <tbody id="show_data">
                         <?php 
-                            foreach ($barang as $key) {
+                            foreach ($bahan as $key) {
                             ?>
                             <tr>
-                                <td><?=$key->id_barang?></td>
-                                <td><?=$key->nama_barang?></a></td>
+                                <td><?=$key->id_bahan?></td>
+                                <td><?=$key->nama_bahan?></a></td>
                                 <td><?=$key->satuan?></td>
                                 <td><?=$key->harga?></td>
                             </tr>

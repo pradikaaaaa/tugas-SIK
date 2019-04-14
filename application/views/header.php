@@ -37,6 +37,9 @@
               <ul class="dropdown-menu">
                 <li><a href="<?=site_url()?>/Barang/index">Lihat Barang</a></li>
                 <li><a href="<?=site_url()?>/Barang/tambahBarang">Tambah Barang</a></li>
+                <li><hr></li>
+                <li><a href="<?=site_url()?>/BahanBaku/index">Lihat Bahan Baku</a></li>
+                <li><a href="<?=site_url()?>/BahanBaku/tambahBahan">Tambah Bahan Baku</a></li>
               </ul>
             </li>
 
