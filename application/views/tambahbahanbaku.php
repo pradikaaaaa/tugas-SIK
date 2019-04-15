@@ -5,29 +5,17 @@
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-body">
-                <?php echo form_open_multipart('Barang/tambahBarang');?>
+                <?php echo form_open_multipart('BahanBaku/tambahBahan');?>
 				<?php echo validation_errors(); ?>
 
                 <div class="form-group">
-					<label for="" >ID Barang :  </label>
-					<input type="text" name="id_barang" class="form-control" id="id_barang" value="<?=$id;?>" readonly>
+					<label for="" >ID Bahan Baku :  </label>
+					<input type="text" name="id_bahan" class="form-control" id="id_barang" value="<?=$id;?>" readonly>
 				</div>
                 <div class="form-group">
-                    <label for="">Nama Barang :</label>
-                    <input class="form-control" type="text" name="nama_barang" id="">
+                    <label for="">Nama Bahan :</label>
+                    <input class="form-control" type="text" name="nama_bahan" id="">
                 </div>
-                <div class="form-group">
-                    <label>Bahan Baku Barang</label>
-                        <select multiple class="form-control" name="bahan[]">
-                            <?php foreach ($bahan as $bb) { ?>
-                            <option value="<?=$bb->id_bahan;?>">
-                                <?=$bb->nama_bahan;?>
-                            </option>
-                            <?php } ?>
-                        </select>
-                </div>
-
-
                 <div class="form-group">
                     <label for="">Satuan :</label>
                     <input class="form-control" type="text" name="satuan" id="">

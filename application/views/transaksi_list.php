@@ -4,41 +4,45 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-            Barang List
-
-            <table width="100%" class="table table-striped table-bordered table-hover" id="dt-transaksi">
+                Transaksi
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dt-transaksi">
                     <thead>
                         <tr>
-                            <th>ID Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Satuan</th>
-                            <th>Harga</th>
+                            <th>ID Transaksi</th>
+                            <th>Tanggal Transaksi</th>
+                            <th>Nama</th>
+                            <th>Detail</th>
                         </tr>
                     </thead>
                     <tbody id="show_data">
                         <?php 
-                            foreach ($barang as $key) {
+                            foreach ($transaksi as $key) {
                             ?>
                             <tr>
-                                <td><?=$key->id_barang?></td>
+                                <td><?=$key->id_transaksi?></td>
+                                <td><?=$key->tgl_transaksi?></a></td>
+                                <td><?=$key->nama_customer?></td>
                                 <td>
-                                    <a href="<?=site_url()?>/Barang/detailBarang/<?=$key->id_barang?>" target="_blank">
-                                        <?=$key->nama_barang?>
+                                    <a href="<?=site_url()?>/Transaksi/detailtransaksi/<?=$key->id_transaksi?>">
+                                    <button type="button" class="btn btn-info btn-block" >Detail</button>
                                     </a>
+                                    
                                 </td>
-                                <td><?=$key->satuan?></td>
-                                <td><?=$key->harga?></td>
                             </tr>
                             <?php } ?>
 
                     </tbody>
                 </table>
 
-
             </div>
         </div>
     </div>
 </div>
+
+
+
+<!-- Modal -->
+
 
 
 <?php $this->load->view('footer');?>
